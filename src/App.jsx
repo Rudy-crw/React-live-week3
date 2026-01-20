@@ -172,6 +172,7 @@ function App() {
       const { token, expired } = res.data;
       document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
       axios.defaults.headers.common["Authorization"] = token;
+      getProducts();
       setIsAuth(true);
     } catch (e) {
       setIsAuth(false);
